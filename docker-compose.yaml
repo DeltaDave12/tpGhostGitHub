@@ -10,16 +10,6 @@ services:
     environment:
       url: http://localhost:2368
 
-db:
-  image: mysql:5.7
-  environment:
-    MYSQL_ROOT_PASSWORD: rootpass
-    MYSQL_DATABASE: ghostdb
-    MYSQL_USER: ghost
-    MYSQL_PASSWORD: ghostpass
-  volumes:
-    - mysql_data:/var/lib/mysql
-
 volumes:
   ghost_content:
   mysql_data:
