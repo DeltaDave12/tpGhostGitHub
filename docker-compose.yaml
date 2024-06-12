@@ -9,6 +9,21 @@ services:
       - ghost_content:/var/lib/ghost/content
     environment:
       url: http://localhost:2368
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: ''
+      database__connection__database: ghost
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_DATABASE: ghost
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - mysql_data:/var/lib/mysql
 
 volumes:
   ghost_content:
